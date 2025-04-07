@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState } from "react";
@@ -51,6 +52,7 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
   const chartData = processData();
 
   // Calculate 7-day moving average for line chart
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const calculateMovingAverage = (data: any[]) => {
     return data.map((item, index) => {
       const start = Math.max(0, index - 6);
@@ -65,33 +67,33 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
 
   const lineChartData = calculateMovingAverage(chartData);
 
-  // Custom tooltip styles
-  const CustomTooltip = ({ active, payload, label }: any) => {
-    if (active && payload && payload.length) {
-      return (
-        <div className="bg-slate-800 border border-slate-700/50 p-3 rounded-lg shadow-lg">
-          <p className="text-slate-300 text-sm mb-1">
-            {payload[0].payload.date}
-          </p>
-          <div className="flex items-center text-sm">
-            <div className="w-2 h-2 rounded-full bg-purple-500 mr-2"></div>
-            <span className="text-white font-medium">
-              {payload[0].value} activities
-            </span>
-          </div>
-          {payload.length > 1 && (
-            <div className="flex items-center text-sm mt-1">
-              <div className="w-2 h-2 rounded-full bg-pink-500 mr-2"></div>
-              <span className="text-white font-medium">
-                {payload[1].value.toFixed(1)} avg
-              </span>
-            </div>
-          )}
-        </div>
-      );
-    }
-    return null;
-  };
+  // // Custom tooltip styles
+  // const CustomTooltip = ({ active, payload, label }: any) => {
+  //   if (active && payload && payload.length) {
+  //     return (
+  //       <div className="bg-slate-800 border border-slate-700/50 p-3 rounded-lg shadow-lg">
+  //         <p className="text-slate-300 text-sm mb-1">
+  //           {payload[0].payload.date}
+  //         </p>
+  //         <div className="flex items-center text-sm">
+  //           <div className="w-2 h-2 rounded-full bg-purple-500 mr-2"></div>
+  //           <span className="text-white font-medium">
+  //             {payload[0].value} activities
+  //           </span>
+  //         </div>
+  //         {payload.length > 1 && (
+  //           <div className="flex items-center text-sm mt-1">
+  //             <div className="w-2 h-2 rounded-full bg-pink-500 mr-2"></div>
+  //             <span className="text-white font-medium">
+  //               {payload[1].value.toFixed(1)} avg
+  //             </span>
+  //           </div>
+  //         )}
+  //       </div>
+  //     );
+  //   }
+  //   return null;
+  // };
 
   return (
     <div className="space-y-6">

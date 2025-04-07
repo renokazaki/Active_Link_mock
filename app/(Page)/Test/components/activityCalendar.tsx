@@ -6,7 +6,7 @@ import { Calendar } from "@/shared/components/ui/calendar";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { cn } from "@/lib/utils";
 import type { ActivityData } from "@/lib/data";
-import { Award, Flame, Star, Clock, CheckCircle2, X } from "lucide-react";
+import { Award, Flame, Star, Clock, CheckCircle2 } from "lucide-react";
 
 interface ActivityCalendarProps {
   activityData: ActivityData[];
