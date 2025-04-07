@@ -2,9 +2,9 @@ import Link from "next/link";
 
 export default function Header() {
   const navigation = [
-    { name: "ホーム", href: "/" },
-    { name: "アクティビティ", href: "/Activity" },
-    { name: "ユーザー検索", href: "/UserSearch" },
+    { name: "My Page", href: "/" },
+    { name: "Friends", href: "/Friends" },
+    { name: "User Search", href: "/UserSearch" },
   ];
 
   return (

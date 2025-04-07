@@ -13,6 +13,10 @@ export interface FriendData {
   weeklyData: WeeklyData[];
   status: "active" | "inactive";
   lastActive: string;
+  activityTypes: {
+    name: string;
+    duration: string;
+  }[];
 }
 
 export interface ActivityData {
@@ -134,6 +138,28 @@ export const friendsData: FriendData[] = [
     weeklyData: generateWeeklyData(1),
     status: "active",
     lastActive: "2024-03-20",
+    activityTypes: [
+      {
+        name: "朝のランニング",
+        duration: "30分",
+      },
+      {
+        name: "ジムトレーニング",
+        duration: "45分",
+      },
+      {
+        name: "瞑想",
+        duration: "15分",
+      },
+      {
+        name: "読書",
+        duration: "60分",
+      },
+      {
+        name: "プログラミング",
+        duration: "90分",
+      },
+    ],
   },
   {
     id: "2",
@@ -150,6 +176,12 @@ export const friendsData: FriendData[] = [
     weeklyData: generateWeeklyData(2),
     status: "inactive",
     lastActive: "2024-03-20",
+    activityTypes: [
+      {
+        name: "朝のランニング",
+        duration: "30分",
+      },
+    ],
   },
   {
     id: "3",
@@ -166,6 +198,20 @@ export const friendsData: FriendData[] = [
     weeklyData: generateWeeklyData(3),
     status: "active",
     lastActive: "2024-03-20",
+    activityTypes: [
+      {
+        name: "朝のランニング",
+        duration: "30分",
+      },
+      {
+        name: "ジムトレーニング",
+        duration: "45分",
+      },
+      {
+        name: "瞑想",
+        duration: "15分",
+      },
+    ],
   },
   {
     id: "4",
@@ -182,6 +228,28 @@ export const friendsData: FriendData[] = [
     weeklyData: generateWeeklyData(4),
     status: "inactive",
     lastActive: "2024-03-20",
+    activityTypes: [
+      {
+        name: "朝のランニング",
+        duration: "30分",
+      },
+      {
+        name: "ジムトレーニング",
+        duration: "45分",
+      },
+      {
+        name: "瞑想",
+        duration: "15分",
+      },
+      {
+        name: "読書",
+        duration: "60分",
+      },
+      {
+        name: "プログラミング",
+        duration: "90分",
+      },
+    ],
   },
   {
     id: "5",
@@ -198,5 +266,11 @@ export const friendsData: FriendData[] = [
     weeklyData: generateWeeklyData(5),
     status: "active",
     lastActive: "2024-03-20",
+    activityTypes: [
+      {
+        name: "朝のランニング",
+        duration: "30分",
+      },
+    ],
   },
 ];
