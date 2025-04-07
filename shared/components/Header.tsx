@@ -5,6 +5,7 @@ export default function Header() {
     { name: "ホーム", href: "/" },
     { name: "アクティビティ", href: "/Activity" },
     { name: "ユーザー検索", href: "/UserSearch" },
+    { name: "テスト", href: "/Test" },
   ];
 
   return (
