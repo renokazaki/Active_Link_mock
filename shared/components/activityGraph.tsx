@@ -42,7 +42,7 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
     return limitedData.map((item) => ({
       ...item,
       formattedDate: new Date(item.date).toLocaleDateString("en-US", {
-        month: "short",
+        month: "numeric",
         day: "numeric",
         ...(period === "year" && { year: "numeric" }),
       }),
@@ -143,13 +143,13 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
         </TabsList>
 
         <TabsContent value="area">
-          <div className="h-[350px] bg-slate-800/30 border border-slate-700/50 rounded-lg p-4 shadow-xl">
+          <div className="h-[350px] bg-slate-800/30 border border-slate-700/50 rounded-lg py-4 shadow-xl  pr-4">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={lineChartData}>
                 <XAxis
                   dataKey="formattedDate"
-                  tickLine={false}
-                  axisLine={false}
+                  tickLine={true}
+                  axisLine={true}
                   tick={{ fill: "#94a3b8" }}
                 />
                 <YAxis
@@ -200,7 +200,7 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
         </TabsContent>
 
         <TabsContent value="bar">
-          <div className="h-[350px] bg-slate-800/30 border border-slate-700/50 rounded-lg p-4 shadow-xl">
+          <div className="h-[350px] bg-slate-800/30 border border-slate-700/50 rounded-lg py-4 shadow-xl  pr-4">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>
                 <XAxis
@@ -240,7 +240,7 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
         </TabsContent>
 
         <TabsContent value="line">
-          <div className="h-[350px] bg-slate-800/30 border border-slate-700/50 rounded-lg p-4 shadow-xl">
+          <div className="h-[350px] bg-slate-800/30 border border-slate-700/50 rounded-lg py-4 shadow-xl pr-4">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={lineChartData}>
                 <XAxis

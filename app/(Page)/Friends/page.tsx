@@ -8,17 +8,17 @@ export default function Activity() {
   const friends = friendsData;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-black">
+    <div className=" text-black　min-h-screen">
       <div className=" container mx-auto py-8 px-4 space-y-8 mt-12">
         <h1 className="text-2xl font-bold mb-6 text-white">Your Friends</h1>
         <div className="grid gap-4">
           {friends.map((friend) => (
             <Link
               key={friend.id}
-              href={`/Activity/Friends/${friend.id}`}
+              href={`/Friends/${friend.id}`}
               className="block"
             >
-              <div className="bg-gray-100 rounded-lg shadow p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+              <div className="bg-gray-100 rounded-lg shadow p-4 flex items-center justify-between hover:bg-blue-500 transition-colors text-black">
                 <div>
                   <div className="flex items-center gap-2">
                     {/* <img
