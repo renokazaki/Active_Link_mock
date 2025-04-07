@@ -1,6 +1,13 @@
-import { ActivityCalendar } from "@/shared/components/Calender";
-import ActiveButton from "./components/ActiveButton";
-import { ActivityGraph } from "@/shared/components/Graph";
+"use client";
+
+import { StatsCard } from "@/shared/components/StatsCard";
+import { PageHeader } from "@/shared/components/PageHeader";
+import { ActivityTabs } from "@/shared/components/ActivityTabs";
+
+import { FriendData } from "@/lib/data";
+
+import { friendsData } from "@/lib/data";
+import { Activity, LineChart, Flame, Trophy, Award } from "lucide-react";
 
 // 活動データの型定義
 export interface ActivityData {
@@ -9,38 +16,53 @@ export interface ActivityData {
   description: string;
 }
 
-type FriendDetail = {
-  id: string;
-  name: string;
-  status: "active" | "inactive";
-  lastActive: string;
-  bio: string;
-  interests: string[];
-  activities: ActivityData[]; // 活動履歴を追加
-};
-
-const myData: FriendDetail = {
-  id: "3",
-  name: "自分",
-  status: "active",
-  lastActive: "2分前",
-  bio: "プログラミングが趣味です。",
-  interests: ["TypeScript", "React", "Next.js"],
-  activities: [
-    { date: "2025-04-01", duration: 120, description: "Next.jsの学習" },
-    { date: "2025-04-03", duration: 90, description: "TypeScriptの練習" },
-  ],
-};
-
+const myData: FriendData = friendsData[0];
 export default function Home() {
   return (
-    <div className="container max-w-3/4 mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-6">活動管理</h1>
-      <ActiveButton />
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+      <div className="container mx-auto py-8 px-4 space-y-8">
+        <div className="flex flex-col md:flex-row justify-between gap-6 items-start md:items-center"></div>
+        <PageHeader>Your Page</PageHeader>
 
-      <div className="flex flex-col gap-12">
-        <ActivityCalendar activityData={myData.activities} />
-        <ActivityGraph activityData={myData.activities} />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <StatsCard
+            title="Total Activities"
+            value={myData.stats.totalActivities}
+            icon={Activity}
+            subtitle={{
+              value: myData.stats.activitiesThisWeek,
+              label: "this week",
+              icon: Trophy,
+              color: "emerald",
+            }}
+          />
+
+          <StatsCard
+            title="Completion Rate"
+            value={`${myData.stats.completionRate}%`}
+            icon={LineChart}
+            trend={{
+              value: myData.stats.completionTrend,
+              label: "% from last month",
+              icon: myData.stats.completionTrend > 0 ? Trophy : Activity,
+              isPositive: myData.stats.completionTrend > 0,
+            }}
+          />
+
+          <StatsCard
+            title="Current Streak"
+            value={`${myData.stats.currentStreak} days`}
+            icon={Flame}
+            subtitle={{
+              value: myData.stats.bestStreak,
+              label: "days",
+              icon: Award,
+              color: "amber",
+            }}
+          />
+        </div>
+
+        <ActivityTabs friend={myData} />
       </div>
     </div>
   );

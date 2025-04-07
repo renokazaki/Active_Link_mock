@@ -1,62 +1,64 @@
 export interface FriendData {
-  id: string
-  name: string
+  id: string;
+  name: string;
   stats: {
-    totalActivities: number
-    activitiesThisWeek: number
-    completionRate: number
-    completionTrend: number
-    currentStreak: number
-    bestStreak: number
-  }
-  activityData: ActivityData[]
-  weeklyData: WeeklyData[]
+    totalActivities: number;
+    activitiesThisWeek: number;
+    completionRate: number;
+    completionTrend: number;
+    currentStreak: number;
+    bestStreak: number;
+  };
+  activityData: ActivityData[];
+  weeklyData: WeeklyData[];
+  status: "active" | "inactive";
+  lastActive: string;
 }
 
 export interface ActivityData {
-  date: string
-  value: number
+  date: string;
+  value: number;
 }
 
 export interface WeeklyData {
-  goal: string
-  description: string
-  current: number
-  target: number
-  unit: string
-  startDate: string
-  endDate: string
+  goal: string;
+  description: string;
+  current: number;
+  target: number;
+  unit: string;
+  startDate: string;
+  endDate: string;
 }
 
 // Generate some sample activity data for the past 3 months
 const generateActivityData = (seed: number): ActivityData[] => {
-  const data: ActivityData[] = []
-  const today = new Date()
+  const data: ActivityData[] = [];
+  const today = new Date();
 
   // Generate data for the past 90 days
   for (let i = 90; i >= 0; i--) {
-    const date = new Date(today)
-    date.setDate(today.getDate() - i)
+    const date = new Date(today);
+    date.setDate(today.getDate() - i);
 
     // Use the seed to create some variation between friends
-    const baseValue = Math.sin(i * 0.1) * 5 + 5 // Creates a wave pattern
-    const randomFactor = Math.random() * 2 - 1 // Random value between -1 and 1
-    const seedFactor = (seed % 5) * 0.5 // Different pattern based on seed
+    const baseValue = Math.sin(i * 0.1) * 5 + 5; // Creates a wave pattern
+    const randomFactor = Math.random() * 2 - 1; // Random value between -1 and 1
+    const seedFactor = (seed % 5) * 0.5; // Different pattern based on seed
 
     // Calculate value with some randomness and seed influence
-    let value = Math.round(baseValue + randomFactor * 3 + seedFactor)
+    let value = Math.round(baseValue + randomFactor * 3 + seedFactor);
 
     // Ensure value is between 0 and 10
-    value = Math.max(0, Math.min(10, value))
+    value = Math.max(0, Math.min(10, value));
 
     data.push({
       date: date.toISOString().split("T")[0],
       value,
-    })
+    });
   }
 
-  return data
-}
+  return data;
+};
 
 // Generate weekly goals data
 const generateWeeklyData = (seed: number): WeeklyData[] => {
@@ -85,32 +87,40 @@ const generateWeeklyData = (seed: number): WeeklyData[] => {
       target: 15,
       unit: "hours",
     },
-  ]
+  ];
 
-  const today = new Date()
-  const startOfWeek = new Date(today)
-  startOfWeek.setDate(today.getDate() - today.getDay())
+  const today = new Date();
+  const startOfWeek = new Date(today);
+  startOfWeek.setDate(today.getDate() - today.getDay());
 
-  const endOfWeek = new Date(startOfWeek)
-  endOfWeek.setDate(startOfWeek.getDate() + 6)
+  const endOfWeek = new Date(startOfWeek);
+  endOfWeek.setDate(startOfWeek.getDate() + 6);
 
   return goals.map((goal, index) => {
     // Use seed and index to create variation
-    const progressFactor = ((seed + index) % 10) / 10
-    const current = Math.round(goal.target * progressFactor * (0.7 + Math.random() * 0.6))
+    const progressFactor = ((seed + index) % 10) / 10;
+    const current = Math.round(
+      goal.target * progressFactor * (0.7 + Math.random() * 0.6)
+    );
 
     return {
       ...goal,
       current: Math.min(current, goal.target),
-      startDate: startOfWeek.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
-      endDate: endOfWeek.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
-    }
-  })
-}
+      startDate: startOfWeek.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      }),
+      endDate: endOfWeek.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      }),
+    };
+  });
+};
 
 export const friendsData: FriendData[] = [
   {
-    id: "friend-1",
+    id: "1",
     name: "Alex Johnson",
     stats: {
       totalActivities: 342,
@@ -122,9 +132,11 @@ export const friendsData: FriendData[] = [
     },
     activityData: generateActivityData(1),
     weeklyData: generateWeeklyData(1),
+    status: "active",
+    lastActive: "2024-03-20",
   },
   {
-    id: "friend-2",
+    id: "2",
     name: "Taylor Smith",
     stats: {
       totalActivities: 256,
@@ -136,9 +148,11 @@ export const friendsData: FriendData[] = [
     },
     activityData: generateActivityData(2),
     weeklyData: generateWeeklyData(2),
+    status: "inactive",
+    lastActive: "2024-03-20",
   },
   {
-    id: "friend-3",
+    id: "3",
     name: "Jordan Lee",
     stats: {
       totalActivities: 421,
@@ -150,9 +164,11 @@ export const friendsData: FriendData[] = [
     },
     activityData: generateActivityData(3),
     weeklyData: generateWeeklyData(3),
+    status: "active",
+    lastActive: "2024-03-20",
   },
   {
-    id: "friend-4",
+    id: "4",
     name: "Casey Morgan",
     stats: {
       totalActivities: 187,
@@ -164,9 +180,11 @@ export const friendsData: FriendData[] = [
     },
     activityData: generateActivityData(4),
     weeklyData: generateWeeklyData(4),
+    status: "inactive",
+    lastActive: "2024-03-20",
   },
   {
-    id: "friend-5",
+    id: "5",
     name: "Riley Parker",
     stats: {
       totalActivities: 312,
@@ -178,6 +196,7 @@ export const friendsData: FriendData[] = [
     },
     activityData: generateActivityData(5),
     weeklyData: generateWeeklyData(5),
+    status: "active",
+    lastActive: "2024-03-20",
   },
-]
-
+];
