@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/shared/components/ui/card";
+import { Card, CardContent } from "@/shared/components/ui/card";
 import {
   Tabs,
   TabsContent,
@@ -28,30 +22,24 @@ export function ActivityTabs({ friend }: ActivityTabsProps) {
           value="calendar"
           className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
         >
-          Calendar View
+          カレンダー
         </TabsTrigger>
         <TabsTrigger
           value="graphs"
           className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
         >
-          Activity Graphs
+          グラフ
         </TabsTrigger>
         <TabsTrigger
           value="weekly"
           className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
         >
-          Weekly Progress
+          週次目標
         </TabsTrigger>
       </TabsList>
 
       <TabsContent value="calendar" className="space-y-6">
-        <Card className="bg-slate-800/30 border-slate-700/50 overflow-hidden backdrop-blur-sm shadow-xl">
-          <CardHeader>
-            <CardTitle className="text-white">Activity Calendar</CardTitle>
-            <CardDescription className="text-slate-400">
-              View {friend.name}&apos;s activity history by date
-            </CardDescription>
-          </CardHeader>
+        <Card className="bg-slate-800/50 border-slate-700/50 overflow-hidden backdrop-blur-sm shadow-xl">
           <CardContent>
             <ActivityCalendar activityData={friend.activityData} />
           </CardContent>
@@ -59,13 +47,7 @@ export function ActivityTabs({ friend }: ActivityTabsProps) {
       </TabsContent>
 
       <TabsContent value="graphs" className="space-y-6">
-        <Card className="bg-slate-800/30 border-slate-700/50 overflow-hidden backdrop-blur-sm shadow-xl">
-          <CardHeader>
-            <CardTitle className="text-white">Activity Trends</CardTitle>
-            <CardDescription className="text-slate-400">
-              Track {friend.name}&apos;s progress over time
-            </CardDescription>
-          </CardHeader>
+        <Card className="bg-slate-800/50 border-slate-700/50 overflow-hidden backdrop-blur-sm shadow-xl">
           <CardContent>
             <ActivityGraph activityData={friend.activityData} />
           </CardContent>
@@ -73,13 +55,7 @@ export function ActivityTabs({ friend }: ActivityTabsProps) {
       </TabsContent>
 
       <TabsContent value="weekly" className="space-y-6">
-        <Card className="bg-slate-800/30 border-slate-700/50 overflow-hidden backdrop-blur-sm shadow-xl">
-          <CardHeader>
-            <CardTitle className="text-white">Weekly Progress</CardTitle>
-            <CardDescription className="text-slate-400">
-              See {friend.name}&apos;s weekly activity breakdown
-            </CardDescription>
-          </CardHeader>
+        <Card className="bg-slate-800/50 border-slate-700/50 overflow-hidden backdrop-blur-sm shadow-xl">
           <CardContent>
             <WeeklyProgress weeklyData={friend.weeklyData} />
           </CardContent>

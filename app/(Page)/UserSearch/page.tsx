@@ -48,7 +48,11 @@ export default function UserSearch() {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && searchUsers()}
         />
-        <Button onClick={searchUsers} disabled={loading}>
+        <Button
+          onClick={searchUsers}
+          disabled={loading}
+          className="bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:from-purple-600 hover:to-pink-700"
+        >
           {loading ? "検索中..." : "検索"}
         </Button>
       </div>
@@ -71,6 +75,7 @@ export default function UserSearch() {
               onClick={() => sendFriendRequest(user.id)}
               variant="outline"
               disabled={sending === user.id}
+              className="bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:from-purple-600 hover:to-pink-700"
             >
               {sending === user.id ? "送信中..." : "友達申請を送信"}
             </Button>
