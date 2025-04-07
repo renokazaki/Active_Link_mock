@@ -26,36 +26,36 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatsCard
-            title="Total Activities"
+            title="活動日数"
             value={myData.stats.totalActivities}
             icon={Activity}
             subtitle={{
               value: myData.stats.activitiesThisWeek,
-              label: "this week",
+              label: "今月",
               icon: Trophy,
               color: "emerald",
             }}
           />
 
           <StatsCard
-            title="Completion Rate"
+            title="活動時間"
             value={`${myData.stats.completionRate}%`}
             icon={LineChart}
             trend={{
               value: myData.stats.completionTrend,
-              label: "% from last month",
+              label: "前月比",
               icon: myData.stats.completionTrend > 0 ? Trophy : Activity,
               isPositive: myData.stats.completionTrend > 0,
             }}
           />
 
           <StatsCard
-            title="Current Streak"
+            title="連続日数"
             value={`${myData.stats.currentStreak} days`}
             icon={Flame}
             subtitle={{
               value: myData.stats.bestStreak,
-              label: "days",
+              label: "最大連続日数",
               icon: Award,
               color: "amber",
             }}

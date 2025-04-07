@@ -22,7 +22,7 @@ export function ActivityDetail({
 }: ActivityDetailProps) {
   return (
     <Card className="bg-slate-800/30 border-slate-700/50 overflow-hidden backdrop-blur-sm h-full">
-      <CardContent className="p-6">
+      <CardContent className="px-6">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-medium text-white">
             {format(date, "EEEE, MMMM d, yyyy")}
@@ -31,7 +31,7 @@ export function ActivityDetail({
 
         {activityLevel > 0 ? (
           <>
-            <div className="space-y-3 mt-4">
+            <div className="space-y-3 ">
               <h4 className="text-sm font-medium text-slate-300 mb-2">
                 今日のアクティビティ
               </h4>

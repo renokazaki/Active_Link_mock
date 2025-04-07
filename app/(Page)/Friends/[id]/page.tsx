@@ -41,24 +41,24 @@ export default function FriendsInfo() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatsCard
-            title="Total Activities"
+            title="活動日数"
             value={selectedFriendData.stats.totalActivities}
             icon={Activity}
             subtitle={{
               value: selectedFriendData.stats.activitiesThisWeek,
-              label: "this week",
+              label: "今月",
               icon: Trophy,
               color: "emerald",
             }}
           />
 
           <StatsCard
-            title="Completion Rate"
+            title="活動時間"
             value={`${selectedFriendData.stats.completionRate}%`}
             icon={LineChart}
             trend={{
               value: selectedFriendData.stats.completionTrend,
-              label: "% from last month",
+              label: "前月比",
               icon:
                 selectedFriendData.stats.completionTrend > 0
                   ? Trophy
@@ -68,12 +68,12 @@ export default function FriendsInfo() {
           />
 
           <StatsCard
-            title="Current Streak"
+            title="連続日数"
             value={`${selectedFriendData.stats.currentStreak} days`}
             icon={Flame}
             subtitle={{
               value: selectedFriendData.stats.bestStreak,
-              label: "days",
+              label: "最大連続日数",
               icon: Award,
               color: "amber",
             }}
