@@ -5,11 +5,10 @@ export default function Header() {
     { name: "ホーム", href: "/" },
     { name: "アクティビティ", href: "/Activity" },
     { name: "ユーザー検索", href: "/UserSearch" },
-    { name: "テスト", href: "/Test" },
   ];
 
   return (
-    <div className="w-full px-4 sm:px-6 lg:px-8 bg-white">
+    <div className="w-full px-4 sm:px-6 lg:px-8  bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <div className="flex justify-between items-center h-12">
         <div className="flex">
           <nav className="ml-2 text-lg font-medium flex space-x-8 text-blue-500">

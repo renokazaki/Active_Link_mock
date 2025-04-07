@@ -30,7 +30,7 @@ export default function RootLayout({
         <header className="fixed top-0 left-0 right-0 z-50 border-b-2 border-gray-600">
           <Header />
         </header>
-        <main className="mt-16">{children}</main>
+        <main>{children}</main>
       </body>
     </html>
   );
