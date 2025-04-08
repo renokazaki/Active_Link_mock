@@ -1,17 +1,4 @@
-export interface ActivityData {
-  date: string;
-  value: number;
-}
-
-export interface WeeklyData {
-  goal: string;
-  description: string;
-  current: number;
-  target: number;
-  unit: string;
-  startDate: string;
-  endDate: string;
-}
+import { ActivityData, WeeklyTarget } from "@/shared/types/type";
 
 export interface FriendData {
   id: string;
@@ -25,12 +12,12 @@ export interface FriendData {
     bestStreak: number;
   };
   activityData: ActivityData[];
-  weeklyData: WeeklyData[];
+  weeklyData: WeeklyTarget[];
   status: "active" | "inactive";
   lastActive: string;
   activityTypes: {
     name: string;
-    duration: string;
+    duration: number;
   }[];
 }
 
@@ -56,65 +43,14 @@ const generateActivityData = (seed: number): ActivityData[] => {
     value = Math.max(0, Math.min(10, value));
 
     data.push({
+      id: i,
       date: date.toISOString().split("T")[0],
-      value,
+      duration: value,
+      name: "Activity " + i,
     });
   }
 
   return data;
-};
-
-// Generate weekly goals data
-const generateWeeklyData = (seed: number): WeeklyData[] => {
-  const goals = [
-    {
-      goal: "Running",
-      description: "Weekly running distance goal",
-      target: 20,
-      unit: "km",
-    },
-    {
-      goal: "Reading",
-      description: "Pages read this week",
-      target: 300,
-      unit: "pages",
-    },
-
-    {
-      goal: "Coding",
-      description: "Hours spent coding",
-      target: 15,
-      unit: "hours",
-    },
-  ];
-
-  const today = new Date();
-  const startOfWeek = new Date(today);
-  startOfWeek.setDate(today.getDate() - today.getDay());
-
-  const endOfWeek = new Date(startOfWeek);
-  endOfWeek.setDate(startOfWeek.getDate() + 6);
-
-  return goals.map((goal, index) => {
-    // Use seed and index to create variation
-    const progressFactor = ((seed + index) % 10) / 10;
-    const current = Math.round(
-      goal.target * progressFactor * (0.7 + Math.random() * 0.6)
-    );
-
-    return {
-      ...goal,
-      current: Math.min(current, goal.target),
-      startDate: startOfWeek.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      }),
-      endDate: endOfWeek.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-      }),
-    };
-  });
 };
 
 export const friendsData: FriendData[] = [
@@ -130,26 +66,34 @@ export const friendsData: FriendData[] = [
       bestStreak: 21,
     },
     activityData: generateActivityData(1),
-    weeklyData: generateWeeklyData(1),
+    weeklyData: [
+      {
+        goal: "Running",
+        description: "Weekly running distance goal",
+        status: "pending",
+        startDate: "2024-03-20",
+        endDate: "2024-03-26",
+      },
+    ],
     status: "active",
     lastActive: "2024-03-20",
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
       {
         name: "ジムトレーニング",
-        duration: "45分",
+        duration: 45,
       },
 
       {
         name: "読書",
-        duration: "60分",
+        duration: 60,
       },
       {
         name: "プログラミング",
-        duration: "90分",
+        duration: 90,
       },
     ],
   },
@@ -165,13 +109,21 @@ export const friendsData: FriendData[] = [
       bestStreak: 14,
     },
     activityData: generateActivityData(2),
-    weeklyData: generateWeeklyData(2),
+    weeklyData: [
+      {
+        goal: "Running",
+        description: "Weekly running distance goal",
+        status: "pending",
+        startDate: "2024-03-20",
+        endDate: "2024-03-26",
+      },
+    ],
     status: "inactive",
     lastActive: "2024-03-20",
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
     ],
   },
@@ -187,17 +139,25 @@ export const friendsData: FriendData[] = [
       bestStreak: 32,
     },
     activityData: generateActivityData(3),
-    weeklyData: generateWeeklyData(3),
+    weeklyData: [
+      {
+        goal: "Running",
+        description: "Weekly running distance goal",
+        status: "pending",
+        startDate: "2024-03-20",
+        endDate: "2024-03-26",
+      },
+    ],
     status: "active",
     lastActive: "2024-03-20",
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
       {
         name: "ジムトレーニング",
-        duration: "45分",
+        duration: 45,
       },
     ],
   },
@@ -213,26 +173,34 @@ export const friendsData: FriendData[] = [
       bestStreak: 10,
     },
     activityData: generateActivityData(4),
-    weeklyData: generateWeeklyData(4),
+    weeklyData: [
+      {
+        goal: "Running",
+        description: "Weekly running distance goal",
+        status: "pending",
+        startDate: "2024-03-20",
+        endDate: "2024-03-26",
+      },
+    ],
     status: "inactive",
     lastActive: "2024-03-20",
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
       {
         name: "ジムトレーニング",
-        duration: "45分",
+        duration: 45,
       },
 
       {
         name: "読書",
-        duration: "60分",
+        duration: 60,
       },
       {
         name: "プログラミング",
-        duration: "90分",
+        duration: 90,
       },
     ],
   },
@@ -248,13 +216,21 @@ export const friendsData: FriendData[] = [
       bestStreak: 18,
     },
     activityData: generateActivityData(5),
-    weeklyData: generateWeeklyData(5),
+    weeklyData: [
+      {
+        goal: "Running",
+        description: "Weekly running distance goal",
+        status: "pending",
+        startDate: "2024-03-20",
+        endDate: "2024-03-26",
+      },
+    ],
     status: "active",
     lastActive: "2024-03-20",
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
     ],
   },

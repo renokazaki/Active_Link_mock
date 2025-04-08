@@ -3,6 +3,8 @@
 import Link from "next/link";
 
 import { friendsData } from "@/lib/data";
+import { Button } from "@/shared/components/ui/button";
+import { Plus } from "lucide-react";
 
 export default function Activity() {
   const friends = friendsData;
@@ -10,7 +12,15 @@ export default function Activity() {
   return (
     <div className=" text-black　min-h-screen">
       <div className=" container mx-auto py-8 px-4 space-y-8 mt-12">
-        <h1 className="text-2xl font-bold mb-6 text-white">Your Friends</h1>
+        <div className="flex items-center justify-between mb-6 pb-2 border-b-2 border-blue-400">
+          <h1 className="text-2xl font-bold  text-white">友達一覧</h1>
+          <Link href="/UserSearch">
+            <Button variant="outline">
+              <Plus className="w-4 h-4 mr-2" />
+              友達を追加
+            </Button>
+          </Link>
+        </div>
         <div className="grid gap-4">
           {friends.map((friend) => (
             <Link

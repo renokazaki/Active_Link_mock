@@ -1,9 +1,9 @@
 "use client";
-import type { WeeklyData } from "@/lib/data";
+import { WeeklyTarget } from "@/shared/types/type";
 import { Clock } from "lucide-react";
 
 interface WeeklyProgressProps {
-  weeklyData: WeeklyData[];
+  weeklyData: WeeklyTarget[];
 }
 
 export function WeeklyProgress({ weeklyData }: WeeklyProgressProps) {

@@ -4,7 +4,6 @@ export default function Header() {
   const navigation = [
     { name: "My Page", href: "/" },
     { name: "Friends", href: "/Friends" },
-    { name: "User Search", href: "/UserSearch" },
   ];
 
   return (

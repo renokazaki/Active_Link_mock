@@ -5,6 +5,8 @@ export type User = {
   status: "active" | "inactive";
   lastActive: string;
   isFriend?: boolean;
+  activityData: ActivityData[];
+  WeeklyTarget: WeeklyTarget[];
 };
 
 export type FriendData = {
@@ -29,9 +31,10 @@ export type Stats = {
 };
 
 export type ActivityData = {
+  id: number;
   date: string;
   duration: number;
-  description: string;
+  name: string;
 };
 
 export type WeeklyTarget = {
