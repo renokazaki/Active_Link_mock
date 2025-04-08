@@ -18,16 +18,20 @@ export default function UserSearch() {
     {
       id: "1",
       name: "山田太郎",
+      img: "/placeholder.svg?height=40&width=40",
       status: "active",
       lastActive: "2分前",
-      img: "/placeholder.svg?height=40&width=40",
+      activityData: [],
+      WeeklyTarget: [],
     },
     {
       id: "2",
       name: "鈴木花子",
+      img: "/placeholder.svg?height=40&width=40",
       status: "inactive",
       lastActive: "1時間前",
-      img: "/placeholder.svg?height=40&width=40",
+      activityData: [],
+      WeeklyTarget: [],
     },
   ]);
 
