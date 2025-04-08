@@ -1,3 +1,18 @@
+export interface ActivityData {
+  date: string;
+  value: number;
+}
+
+export interface WeeklyData {
+  goal: string;
+  description: string;
+  current: number;
+  target: number;
+  unit: string;
+  startDate: string;
+  endDate: string;
+}
+
 export interface FriendData {
   id: string;
   name: string;
@@ -17,21 +32,6 @@ export interface FriendData {
     name: string;
     duration: string;
   }[];
-}
-
-export interface ActivityData {
-  date: string;
-  value: number;
-}
-
-export interface WeeklyData {
-  goal: string;
-  description: string;
-  current: number;
-  target: number;
-  unit: string;
-  startDate: string;
-  endDate: string;
 }
 
 // Generate some sample activity data for the past 3 months
@@ -79,12 +79,7 @@ const generateWeeklyData = (seed: number): WeeklyData[] => {
       target: 300,
       unit: "pages",
     },
-    {
-      goal: "Meditation",
-      description: "Meditation sessions",
-      target: 7,
-      unit: "sessions",
-    },
+
     {
       goal: "Coding",
       description: "Hours spent coding",
@@ -147,10 +142,7 @@ export const friendsData: FriendData[] = [
         name: "ジムトレーニング",
         duration: "45分",
       },
-      {
-        name: "瞑想",
-        duration: "15分",
-      },
+
       {
         name: "読書",
         duration: "60分",
@@ -207,10 +199,6 @@ export const friendsData: FriendData[] = [
         name: "ジムトレーニング",
         duration: "45分",
       },
-      {
-        name: "瞑想",
-        duration: "15分",
-      },
     ],
   },
   {
@@ -237,10 +225,7 @@ export const friendsData: FriendData[] = [
         name: "ジムトレーニング",
         duration: "45分",
       },
-      {
-        name: "瞑想",
-        duration: "15分",
-      },
+
       {
         name: "読書",
         duration: "60分",

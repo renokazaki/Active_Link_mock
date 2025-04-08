@@ -33,13 +33,13 @@ export function StatsCard({
   subtitle,
 }: StatsCardProps) {
   return (
-    <Card className="bg-slate-800/30 border-slate-700/50 overflow-hidden backdrop-blur-sm shadow-xl hover:shadow-purple-900/20 transition-all duration-300">
-      <CardHeader className="pb-2">
+    <Card className="bg-slate-800/30 border-slate-700/50 overflow-hidden backdrop-blur-sm shadow-xl hover:shadow-blue-900/20 transition-all duration-300">
+      <CardHeader>
         <div className="flex justify-between items-center">
           <CardTitle className="text-base font-medium text-slate-300">
             {title}
           </CardTitle>
-          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg shadow-purple-900/30">
+          <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-900/30">
             <Icon className="h-5 w-5 text-white" />
           </div>
         </div>
