@@ -3,22 +3,15 @@
 import { useParams } from "next/navigation";
 
 import { Activity, LineChart, Flame, Trophy, Award } from "lucide-react";
-import { PageHeader } from "@/shared/components/PageHeader";
-import { StatsCard } from "@/shared/components/StatsCard";
-import { ActivityTabs } from "@/shared/components/ActivityTabs";
+import { PageHeader } from "@/shared/components/activity_components/PageHeader";
+import { StatsCard } from "@/shared/components/activity_components/StatsCard";
+import { ActivityTabs } from "@/shared/components/activity_components/ActivityTabs";
 
 import { friendsData } from "@/lib/data";
-// 活動データの型定義
-export interface ActivityData {
-  date: string;
-  duration: number; // 分単位
-  description: string;
-}
 
 export default function FriendsInfo() {
   const params = useParams();
   const friendId = params.id as string;
-  // const friend = friendDetails[friendId];
 
   if (!friendId) {
     return <div>友達が見つかりません</div>;

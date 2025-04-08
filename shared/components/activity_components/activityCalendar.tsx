@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { Calendar } from "@/shared/components/ui/calendar";
 import { cn } from "@/lib/utils";
-import type { ActivityData, FriendData } from "@/lib/data";
-import { Award, Flame, Star } from "lucide-react";
+import type { FriendData } from "@/lib/data";
 import { ActivityDetail } from "./activityDetail";
 import { friendsData } from "@/lib/data";
+import { ActivityData } from "@/shared/types/type";
 
 interface ActivityCalendarProps {
   activityData: ActivityData[];
@@ -35,7 +35,7 @@ export function ActivityCalendar({
   const getActivityLevel = (date: Date) => {
     const dateString = format(date, "yyyy-MM-dd");
     const activity = activityData.find((a) => a.date === dateString);
-    return activity ? activity.value : 0;
+    return activity ? activity.duration : 0;
   };
 
   const renderDay = (day: Date) => {
@@ -99,13 +99,6 @@ export function ActivityCalendar({
     baseTime.setHours(9, 0, 0);
 
     const activityTypes = selectedFriend.activityTypes;
-    const icons = [
-      <Flame key="flame" className="h-4 w-4 text-orange-400" />,
-      <Award key="award" className="h-4 w-4 text-amber-400" />,
-      <Star key="star-purple" className="h-4 w-4 text-purple-400" />,
-      <Star key="star-emerald" className="h-4 w-4 text-emerald-400" />,
-      <Star key="star-blue" className="h-4 w-4 text-blue-400" />,
-    ];
 
     for (let i = 0; i < Math.min(count, activityTypes.length); i++) {
       const activityTime = new Date(baseTime);
@@ -113,22 +106,16 @@ export function ActivityCalendar({
 
       activities.push({
         id: i,
-        name: activityTypes[i].name,
-        icon: icons[i % icons.length],
-        time: format(activityTime, "H:mm"),
+        date: format(activityTime, "yyyy-MM-dd"),
         duration: activityTypes[i].duration,
-        completed: Math.random() > 0.3,
+        name: activityTypes[i].name,
       });
     }
 
     return activities;
   };
 
-  const activities =
-    selectedDateActivity > 0
-      ? generateActivities(selectedDateActivity, date)
-      : [];
-
+  const activities = generateActivities(selectedDateActivity, date);
   return (
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row gap-6">

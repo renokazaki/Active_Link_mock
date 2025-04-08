@@ -1,20 +1,13 @@
 "use client";
 
-import { StatsCard } from "@/shared/components/StatsCard";
-import { PageHeader } from "@/shared/components/PageHeader";
-import { ActivityTabs } from "@/shared/components/ActivityTabs";
-
 import { FriendData } from "@/lib/data";
 
 import { friendsData } from "@/lib/data";
 import { Activity, LineChart, Flame, Trophy, Award } from "lucide-react";
-
-// 活動データの型定義
-export interface ActivityData {
-  date: string;
-  duration: number; // 分単位
-  description: string;
-}
+import ActiveButton from "./components/ActiveButton";
+import { PageHeader } from "@/shared/components/activity_components/PageHeader";
+import { StatsCard } from "@/shared/components/activity_components/StatsCard";
+import { ActivityTabs } from "@/shared/components/activity_components/ActivityTabs";
 
 const myData: FriendData = friendsData[0];
 export default function Home() {
@@ -23,7 +16,7 @@ export default function Home() {
       <div className="container mx-auto py-8 px-4 space-y-8">
         <div className="flex flex-col md:flex-row justify-between gap-6 items-start md:items-center"></div>
         <PageHeader>Your Page</PageHeader>
-
+        <ActiveButton />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatsCard
             title="活動日数"

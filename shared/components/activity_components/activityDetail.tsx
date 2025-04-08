@@ -1,18 +1,13 @@
 import { format } from "date-fns";
 import { Card, CardContent } from "@/shared/components/ui/card";
-import { Clock, CheckCircle2 } from "lucide-react";
+import { Clock, Plus } from "lucide-react";
+import { ActivityData } from "@/shared/types/type";
+import { Button } from "../ui/button";
 
 interface ActivityDetailProps {
   date: Date;
   activityLevel: number;
-  activities: Array<{
-    id: number;
-    name: string;
-    icon: React.ReactNode;
-    time: string;
-    duration: string;
-    completed: boolean;
-  }>;
+  activities: ActivityData[];
 }
 
 export function ActivityDetail({
@@ -40,23 +35,19 @@ export function ActivityDetail({
                   key={activity.id}
                   className="flex items-center p-3 rounded-lg border border-slate-700/50 bg-slate-800/50 hover:bg-slate-800/80 transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500/20 to-pink-600/20 flex items-center justify-center mr-3">
-                    {activity.icon}
-                  </div>
-                  <div className="flex-1">
-                    <div className="font-medium text-white flex items-center">
+                  <div className="flex w-full">
+                    <div className="font-medium text-white flex items-center ">
                       {activity.name}
-                      {activity.completed && (
-                        <CheckCircle2 className="h-4 w-4 text-emerald-400 ml-2" />
-                      )}
                     </div>
-                    <div className="text-xs text-slate-400 flex items-center justify-between mt-1">
-                      <span>{activity.time}</span>
+                    <div className="text-xs text-slate-400 flex items-center  ">
                       <span className="bg-slate-900/50 px-2 py-0.5 rounded-full text-slate-300">
                         {activity.duration}
                       </span>
                     </div>
                   </div>
+                  <Button variant="destructive" size="icon">
+                    削除
+                  </Button>
                 </div>
               ))}
             </div>
@@ -77,6 +68,12 @@ export function ActivityDetail({
             </button>
           </div>
         )}
+        <div className="flex justify-end">
+          <Button variant="default" className="mt-4 ">
+            <Plus className="w-4 h-4 " />
+            アクティビティを追加
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

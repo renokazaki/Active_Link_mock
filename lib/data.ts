@@ -1,6 +1,6 @@
 export interface ActivityData {
   date: string;
-  value: number;
+  duration: number;
 }
 
 export interface WeeklyData {
@@ -30,7 +30,7 @@ export interface FriendData {
   lastActive: string;
   activityTypes: {
     name: string;
-    duration: string;
+    duration: number;
   }[];
 }
 
@@ -57,7 +57,7 @@ const generateActivityData = (seed: number): ActivityData[] => {
 
     data.push({
       date: date.toISOString().split("T")[0],
-      value,
+      duration: value,
     });
   }
 
@@ -136,20 +136,20 @@ export const friendsData: FriendData[] = [
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
       {
         name: "ジムトレーニング",
-        duration: "45分",
+        duration: 45,
       },
 
       {
         name: "読書",
-        duration: "60分",
+        duration: 60,
       },
       {
         name: "プログラミング",
-        duration: "90分",
+        duration: 90,
       },
     ],
   },
@@ -171,7 +171,7 @@ export const friendsData: FriendData[] = [
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
     ],
   },
@@ -193,11 +193,11 @@ export const friendsData: FriendData[] = [
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
       {
         name: "ジムトレーニング",
-        duration: "45分",
+        duration: 45,
       },
     ],
   },
@@ -219,20 +219,20 @@ export const friendsData: FriendData[] = [
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
       {
         name: "ジムトレーニング",
-        duration: "45分",
+        duration: 45,
       },
 
       {
         name: "読書",
-        duration: "60分",
+        duration: 60,
       },
       {
         name: "プログラミング",
-        duration: "90分",
+        duration: 90,
       },
     ],
   },
@@ -254,7 +254,7 @@ export const friendsData: FriendData[] = [
     activityTypes: [
       {
         name: "朝のランニング",
-        duration: "30分",
+        duration: 30,
       },
     ],
   },

@@ -16,13 +16,13 @@ import {
   AreaChart,
 } from "recharts";
 
-import type { ActivityData } from "@/lib/data";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
 } from "@/shared/components/ui/tabs";
+import { ActivityData } from "@/shared/types/type";
 interface ActivityGraphProps {
   activityData: ActivityData[];
 }
@@ -53,10 +53,10 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
 
   // Calculate 7-day moving average for line chart
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const calculateMovingAverage = (data: any[]) => {
+  const calculateMovingAverage = (data: ActivityData[]) => {
     return data.map((item, index) => {
       const start = Math.max(0, index - 6);
-      const values = data.slice(start, index + 1).map((d) => d.value);
+      const values = data.slice(start, index + 1).map((d) => d.duration);
       const sum = values.reduce((acc, val) => acc + val, 0);
       return {
         ...item,
@@ -75,19 +75,19 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
             value="week"
             className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
           >
-            Week
+            週
           </TabsTrigger>
           <TabsTrigger
             value="month"
             className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
           >
-            Month
+            月
           </TabsTrigger>
           <TabsTrigger
             value="year"
             className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
           >
-            Year
+            年
           </TabsTrigger>
         </TabsList>
       </Tabs>
@@ -144,7 +144,7 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
                 />
                 <Area
                   type="monotone"
-                  dataKey="value"
+                  dataKey="duration"
                   stroke="#3b82f6"
                   fill="#3b82f6"
                   fillOpacity={0.3}
@@ -199,7 +199,7 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
                     color: "white",
                   }}
                 />
-                <Bar dataKey="value" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="duration" fill="#3b82f6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -241,7 +241,7 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
                 />
                 <Line
                   type="monotone"
-                  dataKey="value"
+                  dataKey="duration"
                   stroke="#3b82f6"
                   strokeWidth={3}
                   dot={{ r: 4, fill: "#3b82f6", strokeWidth: 0 }}
