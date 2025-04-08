@@ -58,12 +58,12 @@ export function ActivityCalendar({
     let bgGradient = "";
     if (activityLevel > 0) {
       if (activityLevel < 3)
-        bgGradient = "bg-gradient-to-br from-purple-500/30 to-pink-500/30";
+        bgGradient = "bg-gradient-to-br from-blue-500/30 to-blue-600/30";
       else if (activityLevel < 6)
-        bgGradient = "bg-gradient-to-br from-purple-500/50 to-pink-500/50";
+        bgGradient = "bg-gradient-to-br from-blue-500/50 to-blue-600/50";
       else if (activityLevel < 9)
-        bgGradient = "bg-gradient-to-br from-purple-500/70 to-pink-500/70";
-      else bgGradient = "bg-gradient-to-br from-purple-500 to-pink-500";
+        bgGradient = "bg-gradient-to-br from-blue-500/70 to-blue-600/70";
+      else bgGradient = "bg-gradient-to-br from-blue-500 to-blue-600";
     }
 
     return (
@@ -141,19 +141,7 @@ export function ActivityCalendar({
                 setDate(newDate);
               }
             }}
-            className="rounded-md border border-slate-700/50 bg-slate-800/30 text-white p-3"
-            classNames={{
-              day_selected: "bg-transparent text-white",
-              day_today: "bg-transparent text-white",
-              day: "text-slate-400 hover:bg-slate-700 hover:text-white transition-colors",
-              head_cell: "text-slate-300 font-medium",
-              caption: "text-white font-semibold",
-              nav_button:
-                "border border-slate-700/50 bg-slate-800/50 text-slate-400 hover:bg-slate-700 hover:text-white transition-colors",
-              table: "border-collapse space-y-1",
-              cell: "text-center p-0 relative [&:has([aria-selected])]:bg-transparent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md",
-              row: "flex w-full mt-2",
-            }}
+            className="h-full flex items-center justify-center  rounded-md border border-slate-700/50 bg-slate-800/30 text-white "
             components={{
               Day: ({ date: day }) => renderDay(day),
             }}

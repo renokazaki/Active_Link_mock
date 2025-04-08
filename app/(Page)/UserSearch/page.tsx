@@ -51,7 +51,7 @@ export default function UserSearch() {
         <Button
           onClick={searchUsers}
           disabled={loading}
-          className="bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:from-purple-600 hover:to-pink-700"
+          className="bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700"
         >
           {loading ? "検索中..." : "検索"}
         </Button>
@@ -75,7 +75,7 @@ export default function UserSearch() {
               onClick={() => sendFriendRequest(user.id)}
               variant="outline"
               disabled={sending === user.id}
-              className="bg-gradient-to-r from-purple-500 to-pink-600 text-white hover:from-purple-600 hover:to-pink-700"
+              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700"
             >
               {sending === user.id ? "送信中..." : "友達申請を送信"}
             </Button>

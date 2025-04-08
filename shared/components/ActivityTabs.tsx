@@ -20,19 +20,19 @@ export function ActivityTabs({ friend }: ActivityTabsProps) {
       <TabsList className="bg-slate-800/50 border border-slate-700/50 p-1 rounded-full">
         <TabsTrigger
           value="calendar"
-          className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
+          className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
         >
           カレンダー
         </TabsTrigger>
         <TabsTrigger
           value="graphs"
-          className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
+          className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
         >
           グラフ
         </TabsTrigger>
         <TabsTrigger
           value="weekly"
-          className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
+          className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
         >
           週次目標
         </TabsTrigger>

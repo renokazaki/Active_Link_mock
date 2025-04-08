@@ -67,53 +67,25 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
 
   const lineChartData = calculateMovingAverage(chartData);
 
-  // // Custom tooltip styles
-  // const CustomTooltip = ({ active, payload, label }: any) => {
-  //   if (active && payload && payload.length) {
-  //     return (
-  //       <div className="bg-slate-800 border border-slate-700/50 p-3 rounded-lg shadow-lg">
-  //         <p className="text-slate-300 text-sm mb-1">
-  //           {payload[0].payload.date}
-  //         </p>
-  //         <div className="flex items-center text-sm">
-  //           <div className="w-2 h-2 rounded-full bg-purple-500 mr-2"></div>
-  //           <span className="text-white font-medium">
-  //             {payload[0].value} activities
-  //           </span>
-  //         </div>
-  //         {payload.length > 1 && (
-  //           <div className="flex items-center text-sm mt-1">
-  //             <div className="w-2 h-2 rounded-full bg-pink-500 mr-2"></div>
-  //             <span className="text-white font-medium">
-  //               {payload[1].value.toFixed(1)} avg
-  //             </span>
-  //           </div>
-  //         )}
-  //       </div>
-  //     );
-  //   }
-  //   return null;
-  // };
-
   return (
     <div className="space-y-6">
       <Tabs value={period} onValueChange={(value) => setPeriod(value as any)}>
         <TabsList className="bg-slate-800/50 border border-slate-700/50 rounded-full">
           <TabsTrigger
             value="week"
-            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
+            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
           >
             Week
           </TabsTrigger>
           <TabsTrigger
             value="month"
-            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
+            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
           >
             Month
           </TabsTrigger>
           <TabsTrigger
             value="year"
-            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
+            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
           >
             Year
           </TabsTrigger>
@@ -124,19 +96,19 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
         <TabsList className="bg-slate-800/50 border border-slate-700/50 rounded-full">
           <TabsTrigger
             value="area"
-            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
+            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
           >
             Area Chart
           </TabsTrigger>
           <TabsTrigger
             value="bar"
-            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
+            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
           >
             Bar Chart
           </TabsTrigger>
           <TabsTrigger
             value="line"
-            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white"
+            className="rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-blue-600 data-[state=active]:text-white"
           >
             Line Chart
           </TabsTrigger>
@@ -173,8 +145,8 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
                 <Area
                   type="monotone"
                   dataKey="value"
-                  stroke="#a855f7"
-                  fill="#a855f7"
+                  stroke="#3b82f6"
+                  fill="#3b82f6"
                   fillOpacity={0.3}
                 />
                 <Area
@@ -189,7 +161,7 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
           </div>
           <div className="flex items-center justify-center space-x-6 text-sm mt-4">
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-sm bg-purple-500"></div>
+              <div className="w-3 h-3 rounded-sm bg-blue-500"></div>
               <span className="text-slate-400">Daily Activities</span>
             </div>
             <div className="flex items-center space-x-2">
@@ -227,13 +199,13 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
                     color: "white",
                   }}
                 />
-                <Bar dataKey="value" fill="#a855f7" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="value" fill="#3b82f6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
           <div className="flex items-center justify-center space-x-6 text-sm mt-4">
             <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 rounded-sm bg-purple-500"></div>
+              <div className="w-3 h-3 rounded-sm bg-blue-500"></div>
               <span className="text-slate-400">Daily Activities</span>
             </div>
           </div>
@@ -270,10 +242,10 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
                 <Line
                   type="monotone"
                   dataKey="value"
-                  stroke="#a855f7"
+                  stroke="#3b82f6"
                   strokeWidth={3}
-                  dot={{ r: 4, fill: "#a855f7", strokeWidth: 0 }}
-                  activeDot={{ r: 6, fill: "#ec4899", strokeWidth: 0 }}
+                  dot={{ r: 4, fill: "#3b82f6", strokeWidth: 0 }}
+                  activeDot={{ r: 6, fill: "#3b82f6", strokeWidth: 0 }}
                 />
                 <Line
                   type="monotone"
@@ -285,6 +257,16 @@ export function ActivityGraph({ activityData }: ActivityGraphProps) {
                 />
               </LineChart>
             </ResponsiveContainer>
+          </div>
+          <div className="flex items-center justify-center space-x-6 text-sm mt-4">
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-sm bg-blue-500"></div>
+              <span className="text-slate-400">Daily Activities</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 rounded-sm bg-blue-400"></div>
+              <span className="text-slate-400">7-Day Average</span>
+            </div>
           </div>
         </TabsContent>
       </Tabs>
