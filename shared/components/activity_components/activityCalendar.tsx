@@ -57,13 +57,7 @@ export function ActivityCalendar({
 
     let bgGradient = "";
     if (activityLevel > 0) {
-      if (activityLevel < 3)
-        bgGradient = "bg-gradient-to-br from-blue-500/30 to-blue-600/30";
-      else if (activityLevel < 6)
-        bgGradient = "bg-gradient-to-br from-blue-500/50 to-blue-600/50";
-      else if (activityLevel < 9)
-        bgGradient = "bg-gradient-to-br from-blue-500/70 to-blue-600/70";
-      else bgGradient = "bg-gradient-to-br from-blue-500 to-blue-600";
+      bgGradient = "bg-gradient-to-br from-blue-500 to-blue-600";
     }
 
     return (
@@ -72,8 +66,8 @@ export function ActivityCalendar({
           "h-10 w-10 p-0 font-normal rounded-full flex items-center justify-center relative transition-all duration-200",
           bgGradient,
           isSelected &&
-            "ring-2 ring-pink-500 ring-offset-2 ring-offset-slate-900",
-          isToday && !isSelected && "ring-2 ring-purple-500",
+            "ring-2 ring-purple-500 ring-offset-2 ring-offset-slate-900",
+          isToday && !isSelected && "ring-2 ring-pink-500",
           activityLevel > 0 && "cursor-pointer hover:scale-105"
         )}
         onClick={() => {

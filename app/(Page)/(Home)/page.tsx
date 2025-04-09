@@ -17,6 +17,8 @@ export default function Home() {
         <div className="flex flex-col md:flex-row justify-between gap-6 items-start md:items-center"></div>
         <PageHeader>Your Page</PageHeader>
         <ActiveButton />
+        <ActivityTabs friend={myData} />
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatsCard
             title="活動日数"
@@ -54,8 +56,6 @@ export default function Home() {
             }}
           />
         </div>
-
-        <ActivityTabs friend={myData} />
       </div>
     </div>
   );

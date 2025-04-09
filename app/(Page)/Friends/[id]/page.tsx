@@ -31,6 +31,7 @@ export default function FriendsInfo() {
         <div className="flex flex-col md:flex-row justify-between gap-6 items-start md:items-center">
           <PageHeader>{selectedFriendData.name} Page</PageHeader>
         </div>
+        <ActivityTabs friend={selectedFriendData} />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <StatsCard
@@ -72,8 +73,6 @@ export default function FriendsInfo() {
             }}
           />
         </div>
-
-        <ActivityTabs friend={selectedFriendData} />
       </div>
     </div>
   );
