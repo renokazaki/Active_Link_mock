@@ -45,9 +45,14 @@ export function ActivityDetail({
                       </span>
                     </div>
                   </div>
-                  <Button variant="destructive" size="icon">
-                    削除
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <Button className="bg-green-300 text-black" size="icon">
+                      編集
+                    </Button>
+                    <Button variant="destructive" size="icon">
+                      削除
+                    </Button>
+                  </div>
                 </div>
               ))}
             </div>
