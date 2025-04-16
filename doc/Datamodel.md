@@ -10,7 +10,7 @@ erDiagram
         string display_name "ユーザー名"
         string profile_image "プロフィール画像のパス"
         enum active_status "状態(active/inactive)"
-        timestamp created_at "アカウント作成日時"
+        timestamp created_at "作成日時"
         timestamp updated_at "最終更新日時"
     }
     
@@ -18,7 +18,7 @@ erDiagram
         int id PK "活動ID"
         int user_id FK "ユーザーID"
         date activity_date "活動日"
-        timestamp created_at "記録作成日時"
+        timestamp created_at "作成日時"
         timestamp updated_at "最終更新日時"
     }
     
@@ -28,7 +28,7 @@ erDiagram
         text description "活動内容の説明"
         int duration_minutes "活動時間(分)"
         string category "活動カテゴリ"
-        timestamp created_at "記録作成日時"
+        timestamp created_at "作成日時"
         timestamp updated_at "最終更新日時"
     }
     
@@ -42,8 +42,8 @@ erDiagram
         date actual_start_date "実際の開始日"
         date actual_end_date "実際の終了日"
         enum target_status "状態(pending/started/completed)"
-        timestamp created_at "目標作成日時"
-        timestamp updated_at "目標更新日時"
+        timestamp created_at "作成日時"
+        timestamp updated_at "最終更新日時"
     }
     
     friendships {
@@ -51,6 +51,6 @@ erDiagram
         int sender_id FK "リクエスト送信者ID"
         int receiver_id FK "リクエスト受信者ID"
         enum friendship_status "状態(pending/accepted/rejected)"
-        timestamp created_at "リクエスト送信日時"
+        timestamp created_at "作成日時"
         timestamp updated_at "最終更新日時"
     }
